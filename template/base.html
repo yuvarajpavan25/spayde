@@ -1,0 +1,223 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hospital Management{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom Navbar Styling */
+        .navbar {
+            background-color: #007bff; /* Blue background */
+            border-bottom: 3px solid #0056b3; /* Darker blue border */
+            height: 140px; /* Increased height of the navbar */
+            display: flex;
+            align-items: center; /* Ensures content is vertically aligned */
+        }
+        .navbar-brand, .nav-link, .emergency-numbers {
+            color: #fff !important; /* White text */
+        }
+        .nav-link:hover {
+            color: #cce5ff !important; /* Lighter blue on hover */
+        }
+        .emergency-numbers {
+            font-size: 14px;
+            font-weight: bold;
+        }
+          /* Resetting margins and padding */
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #2f2f2f;
+            color: #fff;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            margin-top: 10px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .footer-section p, .footer-section ul {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6347;
+        }
+
+        .social-links a {
+            margin: 5px 10px;
+            text-decoration: none;
+            color: #ddd;
+            font-size: 16px;
+        }
+
+        .social-links a:hover {
+            color: #ff6347;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2px;
+            font-size: 12px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <script>
+          // JavaScript to change color of social media links on hover
+          document.querySelectorAll('.social-links a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.color = '#ff6347';  // Change color to tomato on hover
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.style.color = '#ddd';  // Reset color when not hovered
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <!-- Ensure that 'image.jpg' exists in the static folder -->
+            <img src="{% static 'image.jpg' %}" alt="Hospital Logo" class="me-2" style="height: 80px;">
+            <a class="navbar-brand" href="{% url 'home' %}">SPAYDE HOSPITALS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <!-- Corrected FontAwesome icon -->
+                        <a class="nav-link" href="{% url 'home' %}"> <i class="fas fa-home"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'service' %}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'doctors' %}">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'location' %}">Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'bookapp' %}">Book appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-4 emergency-numbers text-end">
+                    <div>Emergency: +91 40 4567 4567</div>
+                    <div>International: +91 40 6600 0066</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>SPAYDE Hospital is dedicated to providing compassionate healthcare with a focus on patient well-being.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'service' %}">Services</a></li>
+                    <li><a href="{% url 'location' %}">locations</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'bookapp' %}">Book appointment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Phone: +1 243 657 908</li>
+                    <li>Email: contact@spaydehospital.com</li>
+                    <li>Address: Road number - 5 KPHB NEAR NEXUS MALL,HYDERABAD , INDIA</li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank" id="facebook">Facebook</a>
+                    <a href="#" target="_blank" id="twitter">Twitter</a>
+                    <a href="#" target="_blank" id="instagram">Instagram</a>
+                    <a href="#" target="_blank" id="linkedin">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SPAYDE Hospital. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

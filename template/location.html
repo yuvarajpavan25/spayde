@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPAYDE Hospitals Locations in India</title>
+    <style>
+        .klm {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .location {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s;
+        }
+        .location:hover {
+            background-color: #e9f7fa;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .doctors {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .doctor {
+            color: #d9534f;
+        }
+        .hospital-image {
+            width: 45%;
+            height: 200px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .map-container {
+            width: 45%;
+            height: 250px;
+        }
+        iframe {
+            width: 70%;
+            height: 100%;
+            border: 0;
+            border-radius: 5px;
+        }
+        .hospital-info {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="klm">
+    <div class="container">
+        <h1>SPAYDE Hospitals Locations in India</h1>
+
+        <div class="location">
+            <div class="hospital-info">
+                <h2>Mumbai</h2>
+                <img src="{% static 'mumbai.jpg' %}" alt="Tata Memorial Hospital" class="hospital-image">
+                <p>Mumbai is home to SPAYDE Hospitals, providing exceptional healthcare services with a patient-first approach. It specializes in cutting-edge medical technology and innovative treatments for diverse conditions.</p>
+                <div class="doctors">
+                    Doctors at SPAYDE Hospitals Mumbai:
+                    <ul>
+                        <li class="doctor">Dr. Rajendra Badwe - 40 years experience</li>
+                        <li class="doctor">Dr. Raees Tonse - 15 years experience</li>
+                        <li class="doctor">Dr. Kumar Prabhash - 20 years experience</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120680.99000579478!2d72.79353062051835!3d19.051381767818658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e00d250293%3A0xfebacae0844e5091!2sBombay%20Hospital%20%26%20Medical%20Research%20Centre!5e0!3m2!1sen!2sin!4v1738308757731!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="hospital-info">
+                <h2>Delhi</h2>
+                <img src="{% static 'delhi.jpg' %}" alt="AIIMS" class="hospital-image">
+                <p>In Delhi, SPAYDE Hospitals stand out for their advanced medical facilities and dedicated patient care. The hospital emphasizes personalized treatments and has a reputation for medical excellence.</p>
+                <div class="doctors">
+                    Doctors at SPAYDE Hospitals Delhi:
+                    <ul>
+                        <li class="doctor">Dr. K. Singh - 22 years experience</li>
+                        <li class="doctor">Dr. M. Verma - 15 years experience</li>
+                        <li class="doctor">Dr. T. Chatterjee - 10 years experience</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224201.66769630855!2d76.76454799453126!3d28.59524480000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1b3ae0cf4f6f%3A0xec55552f03c1526d!2sManipal%20Hospital%20Dwarka!5e0!3m2!1sen!2sin!4v1738308722328!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="hospital-info">
+                <h2>Bengaluru</h2>
+                <img src="{% static 'bengaluru.webp' %}" alt="Manipal Hospital" class="hospital-image">
+                <p>Bengaluru boasts SPAYDE Hospitals, offering comprehensive healthcare with cutting-edge technology and expert care. Their specialties include multidisciplinary medical services and state-of-the-art diagnostic facilities.</p>
+                <div class="doctors">
+                    Doctors at SPAYDE Hospitals Bengaluru:
+                    <ul>
+                        <li class="doctor">Dr. A. Rao - 14 years experience</li>
+                        <li class="doctor">Dr. N. Reddy - 20 years experience</li>
+                        <li class="doctor">Dr. L. Iyer - 12 years experience</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124448.02375897288!2d77.4183921972656!3d12.907673500000023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158e750221f1%3A0xf18e3d80c3d298aa!2sThe%20Bangalore%20Hospital!5e0!3m2!1sen!2sin!4v1738308663404!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="hospital-info">
+                <h2>Chennai</h2>
+                <img src="{% static 'chennai.jpg' %}" alt="Apollo Hospitals Chennai" class="hospital-image">
+                <p>SPAYDE Hospitals in Chennai lead in delivering world-class treatments with a patient-focused approach. It offers unparalleled medical services, including advanced surgeries and critical care units.</p>
+                <div class="doctors">
+                    Doctors at SPAYDE Hospitals Chennai:
+                    <ul>
+                        <li class="doctor">Dr. M. Balaji - 19 years experience</li>
+                        <li class="doctor">Dr. T. Kumaravel - 15 years experience</li>
+                        <li class="doctor">Dr. R. Natarajan - 22 years experience</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124403.20848616029!2d80.16545473313168!3d12.99739961465527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f45b07102d1%3A0x45721eef9832613d!2sCHENNAI%20NATIONAL%20HOSPITAL!5e0!3m2!1sen!2sin!4v1738308561731!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="hospital-info">
+                <h2>Kolkata</h2>
+                <img src="{% static 'kolkata.jpg' %}" alt="AMRI Hospitals" class="hospital-image">
+                <p>Kolkata is served by SPAYDE Hospitals, known for their comprehensive care and dedicated medical professionals. It excels in patient rehabilitation, preventive care, and specialized treatments.</p>
+                <div class="doctors">
+                    Doctors at SPAYDE Hospitals Kolkata:
+                    <ul>
+                        <li class="doctor">Dr. S. Mukherjee - 17 years experience</li>
+                        <li class="doctor">Dr. A. Chatterjee - 13 years experience</li>
+                        <li class="doctor">Dr. P. Roy - 21 years experience</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117928.05473928896!2d88.17667089726564!3d22.532241800000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027750f669c89b%3A0xcbc28975969ccbac!2sWoodlands%20Multispeciality%20Hospital%20Private%20Limited%20(WMHL)%2C%20Kolkata!5e0!3m2!1sen!2sin!4v1738308503348!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="location">
+            <div class="hospital-info">
+                <h2>Hyderabad</h2>
+                <img src="{% static 'imghyd.jpg' %}" alt="Apollo Hospitals Hyderabad" class="hospital-image">
+                <p>SPAYDE Hospitals in Hyderabad provide exceptional care, leveraging modern technology and expert medical teams. It is also renowned for its extensive outpatient services and specialized treatments.</p>
+                <div class="doctors">
+                    Doctors at SPAYDE Hospitals Hyderabad:
+                    <ul>
+                        <li class="doctor">Dr. K.V.Raghavendra Rao - 20 years experience</li>
+                        <li class="doctor">Dr. Srinivas K. - 12 years experience</li>
+                        <li class="doctor">Dr. Ramesh Kumar - 15 years experience</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60895.130919859264!2d78.30869474863279!3d17.462313700000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb917df77e5ba9%3A0xa47221c5deef3da2!2sYashoda%20Hospitals%20Hitec%20City!5e0!3m2!1sen!2sin!4v1738308066547!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

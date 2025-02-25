@@ -1,0 +1,382 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centers of Excellence</title>
+    <style>
+        #abc{
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; 
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .grid-item:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background-color: #fefefe; 
+            margin: 15% auto; 
+            padding: 20px; 
+            border: 1px solid #888; 
+            width: 80%; 
+        }
+
+        .close {
+            color: #aaa; 
+            float:right; 
+            font-size:28px; 
+            font-weight:bold; 
+        }
+
+        .close:hover,
+        .close:focus {
+          color: black; 
+          text-decoration: none; 
+          cursor:pointer; 
+        }
+        
+
+        h1 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: blue;
+            margin: 10px auto;
+        }
+
+        .specialities {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .specialities ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .specialities li {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .specialities li::before {
+            content: "\2022";
+            color: blue;
+            font-weight: bold;
+            display: inline-block;
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        .specialities li:hover {
+            color: skyblue;
+            transform: translateX(10px);
+        }
+
+        @media (max-width: 768px) {
+            .specialities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .specialities {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="abc">
+    <h1>Centers of Excellence</h1>
+    <div class="grid-container">
+        <div class="grid-item" onclick="openModal('Cancer')">
+            <img src="{% static 'cancer.jpg' %}" alt="Cancer">
+                <span>Cancer</span>
+                <div class="tooltip">Doctors: 85% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Cardiology')">
+                <img src="{% static 'cardiol.png' %}" alt="Cardiology">
+                <span>Cardiology</span>
+                <div class="tooltip">Doctors: 90% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('CT Surgery')">
+                <img src="{% static 'ct surgery.png' %}" alt="CT Surgery">
+                <span>CT Surgery</span>
+                <div class="tooltip">Doctors: 88% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Gastroenterology')">
+                <img src="{% static 'gastroentrologiest.jpg' %}" alt="Gastroenterology">
+                <span>Gastroenterology</span>
+                <div class="tooltip">Doctors: 92% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Liver')">
+                <img src="{% static 'liver.png' %}" alt="Liver">
+                <span>Liver</span>
+                <div class="tooltip">Doctors: 89% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Mother & Child')">
+                <img src="{% static 'mother and child.jpg' %}" alt="Mother & Child">
+                <span>Mother & Child</span>
+                <div class="tooltip">Doctors: 87% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Multiorgan transplant')">
+                <img src="{% static 'multiorgan.png' %}" alt="Multiorgan transplant">
+                <span>Multiorgan transplant</span>
+                <div class="tooltip">Doctors: 93% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Neurosciences')">
+                <img src="{% static 'nephro.png' %}" alt="Neurosciences">
+                <span>Neurosciences</span>
+                <div class="tooltip">Doctors: 91% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Orthopaedics')">
+                <img src="{% static 'ortho.png' %}" alt="Orthopaedics">
+                <span>Orthopaedics</span>
+                <div class="tooltip">Doctors: 88% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Nephrology')">
+                <img src="{% static 'nephro.png'%}" alt="Nephrology">
+                <span>Nephrology</span>
+                <div class="tooltip">Doctors: 86% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Robotic Science')">
+                <img src="{% static 'robo.png' %}" alt="Robotic Science">
+                <span>Robotic Science</span>
+                <div class="tooltip">Doctors: 94% Pass Rate</div>
+        </div>
+        <div class="grid-item" onclick="openModal('Spine Surgery')">
+                <img src="{% static 'spine.jpg' %}" alt="Spine Surgery">
+                <span>Spine Surgery</span>
+                <div class="tooltip">Doctors: 90% Pass Rate</div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="doctorModal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2 id='modalTitle'>Doctor Information</h2>
+          <ul id='doctorList'></ul>
+      </div>
+    </div>
+
+    <h1>Other Specialities</h1>
+    <div class="specialities">
+        <ul>
+            <li>Arthroscopy & Sports Medicine</li>
+            <li>Bariatric Surgery</li>
+            <li>Critical Care</li>
+            <li>Dermatology</li>
+            <li>ENT</li>
+            <li>Emergency Services</li>
+        </ul>
+        <ul>
+            <li>Endocrinology</li>
+            <li>Gastroenterology</li>
+            <li>General Medicine</li>
+            <li>Gynaecology</li>
+            <li>Hematology & BMT</li>
+            <li>Interventional Radiology</li>
+        </ul>
+        <ul>
+            <li>Kidney Transplant</li>
+            <li>Nuclear Medicine</li>
+            <li>Ophthalmology</li>
+            <li>Pain Medicine</li>
+            <li>Pediatrics</li>
+            <li>Physiotherapy</li>
+        </ul>
+        <ul>
+            <li>Plastic Surgery</li>
+            <li>Pulmonology</li>
+            <li>Rheumatology</li>
+            <li>Radiology</li>
+            <li>Surgical Gastroenterology</li>
+            <li>Urology</li>
+            <li>Vascular Surgery</li>
+        </ul>
+    </div>
+    </div>
+
+    <!-- JavaScript to handle modal -->
+    <script>
+      const doctorData = {
+          'Cancer': [
+              { name:'Rajeev', surgeries:'150', successRate:'95%' },
+              { name:'Mani', surgeries:'120', successRate:'90%' }
+          ],
+          'Cardiology': [
+              { name:'Dr. Ram', surgeries:'200', successRate:'92%' },
+              { name:'Dr. Rajesh', surgeries:'180', successRate:'89%' }
+          ],
+          'CT Surgery': [
+              { name:'Dr. Sarah Johnson', surgeries:'130', successRate:'88%' },
+              { name:'Dr. David Wilson', surgeries:'110', successRate:'85%' }
+          ],
+          'Gastroenterology': [
+              { name:'Dr. Sai', surgeries:'160', successRate:'94%' },
+              { name:'Dr. Anjali', surgeries:'140', successRate:'90%' }
+          ],
+          'Liver': [
+              { name:'Dr. Robert Blue', surgeries:'140', successRate:'91%' },
+              { name:'Dr. Patricia Red', surgeries:'130', successRate:'88%' }
+          ],
+          'Mother & Child': [
+              { name:'Dr. Lisa Yellow', surgeries:'200', successRate:'93%' },
+              { name:'Dr. Michael Grey', surgeries:'170', successRate:'90%' }
+          ],
+          'Multiorgan transplant': [
+              { name:'Dr. Alice Purple', surgeries:'80', successRate:'97%' },
+              { name:'Dr. Tom Orange', surgeries:'75', successRate:'95%' }
+          ],
+          'Neurosciences': [
+              { name:'Dr. Nancy Pink', surgeries:'130', successRate:'92%' },
+              { name:'Dr. Kevin Cyan', surgeries:'110', successRate:'89%' }
+          ],
+          'Orthopaedics': [
+              { name:'Dr. hema', surgeries:'150', successRate:'90%' },
+              { name:'Dr. Prem', surgeries:'140', successRate:'87%' }
+          ],
+          'Nephrology': [
+              { name:'Dr. Latha', surgeries:'120', successRate:'85%' },
+              { name:'Dr. Sruthi', surgeries:'110', successRate:'82%' }
+          ],
+          'Robotic Science': [
+              { name:'Dr. Steven Gold', surgeries:'60', successRate:'98%' },
+              { name:'Dr. Karen Silver', surgeries:'55', successRate:'95%' }
+          ],
+          'Spine Surgery': [
+              { name:'Dr. Richard Grey', surgeries:'140', successRate:'91%' },
+              { name:'Dr. Jessica Blue', surgeries:'130', successRate:'88%' }
+          ]
+      };
+
+      function openModal(specialty) {
+          const modal = document.getElementById("doctorModal");
+          const title = document.getElementById("modalTitle");
+          const doctorList = document.getElementById("doctorList");
+          
+          title.textContent = specialty + " Doctors";
+          
+          // Clear previous list
+          doctorList.innerHTML = '';
+          
+          // Populate the list with doctors data
+          doctorData[specialty].forEach(doctor => {
+              const li = document.createElement("li");
+              li.textContent = `${doctor.name} -Surgeries performed:${doctor.surgeries}, Success Rate:${doctor.successRate}`;
+              doctorList.appendChild(li);
+          });
+
+          modal.style.display = "block";
+      }
+
+      function closeModal() {
+          document.getElementById("doctorModal").style.display = "none";
+      }
+
+      // Close modal when clicking outside of it
+      window.onclick = function(event) {
+          const modal = document.getElementById("doctorModal");
+          if (event.target == modal) {
+              closeModal();
+          }
+      }
+    </script>
+
+</body>
+</html>
+{% endblock %}

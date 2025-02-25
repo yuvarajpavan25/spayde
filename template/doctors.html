@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors Directory</title>
+    <style>
+        .ab {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .doctor-card {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        .doctor-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .doctor-info {
+            flex: 1;
+        }
+        .doctor-info h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .doctor-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .doctor-info .specialty {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .book-appointment-btn {
+            background-color: #007BFF; /* Button color */
+            color: white; /* Text color */
+            padding: 10px; /* Padding */
+            border-radius: 5px; /* Rounded corners */
+            border: none; /* No border */
+            cursor: pointer; /* Pointer cursor */
+            text-decoration: none; /* Remove underline */
+        }
+    </style>
+</head>
+<body>
+    <div class="ab">
+    <h1>Doctors Directory</h1>
+
+    {% for doctor in doctors %}
+    <div class="doctor-card">
+        <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}">  {# Changed from images to image #}
+        <div class="doctor-info">
+            <h2>{{ doctor.name }}</h2>
+            <p><span class="specialty">Specialty:</span> {{ doctor.specialty }}</p>
+            <p><span class="specialty">Department:</span> {{ doctor.department }}</p>
+            <p>{{ doctor.description }}</p>
+
+            <!-- Book Appointment Button -->
+            <a href="{% url 'bookapp' %}?doctor_name={{ doctor.name|urlencode }}&department={{ doctor.department|urlencode }}"
+                class="book-appointment-btn">
+                Book Appointment
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock %}

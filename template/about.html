@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPAYDE Hospitals - Leading Multi-Specialty Healthcare</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333;">
+    <!-- Hero Section -->
+    <section style="position: relative; height: 600px; color: white; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <div style="max-width: 600px;">
+                <h1 style="font-size: 3.5rem; font-weight: bold; margin-bottom: 1.5rem;">Welcome to SPAYDE Hospitals</h1>
+                <p style="font-size: 1.25rem; margin-bottom: 2rem;">Leading Multi-Specialty Healthcare Provider with World-Class Medical Excellence</p>
+                <a style="display: inline-flex; align-items: center; padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; font-size: 1.125rem; background-color: #2563eb; color: white; border: none; cursor: pointer; transition: background-color 0.3s ease;text-decoration: none;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'" href="{% url 'bookapp' %}">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section style="padding: 5rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem;">About SPAYDE Hospitals</h2>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">
+                        SPAYDE Hospitals stands as a testament to excellence in healthcare, providing world-class medical services 
+                        for over 25 years. Our commitment to patient care, coupled with cutting-edge technology and expert medical 
+                        professionals, has established us as a leading healthcare institution.
+                    </p>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">
+                        With state-of-the-art facilities, we are equipped to handle complex medical cases across a wide spectrum of specialties, 
+                        including cardiology, neurology, orthopedics, oncology, and more. Our multidisciplinary approach ensures comprehensive 
+                        care tailored to the unique needs of every patient.
+                    </p>
+                    <p style="color: #4b5563;">
+                        We are deeply rooted in our mission to make quality healthcare accessible to all, with affordable treatment options 
+                        and compassionate care. Whether it's preventive medicine, emergency treatment, or advanced surgical interventions, 
+                        SPAYDE Hospitals is committed to your well-being.
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hospital Facility" style="width: 100%; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Medical Staff" style="width: 100%; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-top: 2rem;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section style="padding: 5rem 0; background-color: #f9fafb;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">Our Vision & Mission</h2>
+                <p style="color: #4b5563; margin-bottom: 2rem;">To redefine healthcare by combining compassion and innovation to deliver exceptional medical services to our community and beyond.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Our Vision</h3>
+                    <p style="color: #4b5563;">
+                        At SPAYDE Hospitals, our vision is to be recognized as a global leader in healthcare, where patients 
+                        receive unparalleled care and innovative treatments in a patient-centric environment.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Our Mission</h3>
+                    <p style="color: #4b5563;">
+                        Our mission is to enhance lives through personalized, accessible, and world-class healthcare 
+                        services, delivered with compassion, professionalism, and a commitment to excellence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section style="padding: 5rem 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">Our Departments</h2>
+                <p style="color: #4b5563; margin-bottom: 2rem;">Explore our wide range of medical specialties dedicated to your well-being.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Cardiology</h3>
+                    <p style="color: #4b5563;">Advanced heart care with cutting-edge technology and experienced cardiologists.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Neurology</h3>
+                    <p style="color: #4b5563;">Expert care for neurological disorders with state-of-the-art diagnostics.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Oncology</h3>
+                    <p style="color: #4b5563;">Comprehensive cancer care and treatments tailored to individual needs.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Orthopedics</h3>
+                    <p style="color: #4b5563;">Innovative solutions for bone, joint, and spine care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section style="padding: 5rem 0; background-color: #f9fafb;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">What Our Patients Say</h2>
+                <p style="color: #4b5563;">Hear from those whose lives we've touched.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <p style="color: #4b5563; margin-bottom: 1rem;">
+                        "SPAYDE Hospitals saved my life. The doctors and nurses were attentive, professional, and compassionate. I couldn't have asked for better care."
+                    </p>
+                    <strong>- Sudeepthi L.</strong>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <p style="color: #4b5563; margin-bottom: 1rem;">
+                        "The facilities at SPAYDE are top-notch. From diagnosis to treatment, everything was handled with precision and care. Highly recommend."
+                    </p>
+                    <strong>- John D.</strong>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                    <p style="color: #4b5563; margin-bottom: 1rem;">
+                        "I am deeply grateful for the team at SPAYDE Hospitals. They treated my mother with such kindness and professionalism."
+                    </p>
+                    <strong>- Abhi K.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+{% endblock %}

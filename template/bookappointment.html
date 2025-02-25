@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+    <style>
+        .ab{
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            margin-top: 15px;
+            font-size: 24px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="ab">
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript to update doctors based on selected category
+    const categorySelect = document.querySelector('select[name="category"]');
+    const doctorSelect = document.querySelector('select[name="doctor"]');
+
+    categorySelect.addEventListener('change', function() {
+        const categoryId = this.value;
+        if (categoryId) {
+            // Use AJAX to get the doctors for the selected category
+            fetch(`/get_doctors/${categoryId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    doctorSelect.innerHTML = '';  // Clear the current doctor options
+                    data.doctors.forEach(doctor => {
+                        const option = document.createElement('option');
+                        option.value = doctor.id;
+                        option.textContent = doctor.name;
+                        doctorSelect.appendChild(option);
+                    });
+                });
+        } else {
+            doctorSelect.innerHTML = '';  // Clear doctors if no category is selected
+        }
+    });
+</script>
+
+</body>
+</html>
+{% endblock %}

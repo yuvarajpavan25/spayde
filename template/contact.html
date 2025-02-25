@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        .abc {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        /* .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+        /* } */
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        input:focus, textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="abc">
+    <div class="container">
+        <h1>Contact Us</h1>
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div>
+                {{ form.name.label_tag }} {{ form.name }}
+            </div>
+            <div>
+                {{ form.email.label_tag }} {{ form.email }}
+            </div>
+            <div>
+                {{ form.phone.label_tag }} {{ form.phone }}
+            </div>
+            <div>
+                {{ form.message.label_tag }} {{ form.message }}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

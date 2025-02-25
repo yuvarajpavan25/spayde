@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrolling Ads</title>
+  <link rel="stylesheet" href="{% static 'home.css' %}">
+  <style>
+    /* .container { */
+            /* max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+        /* } */
+        .section-title {
+            font-size: 32px;
+            color: #007BFF;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .services, .contact-info, .technologies, .testimonials, .expertise {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .service-item, .contact-item, .technology-item, .testimonial-item, .expertise-item {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .service-item h3, .contact-item h3, .technology-item h3, .expertise-item h3 {
+            font-size: 24px;
+            color: #007BFF;
+        }
+        .service-item p, .contact-item p, .technology-item p, .expertise-item p {
+            font-size: 16px;
+            color: #333;
+        }
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .cta button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cta button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .testimonial-item {
+            font-style: italic;
+        }
+        .testimonial-item cite {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: right;
+        }
+  </style>
+</head>
+<body>
+
+  <div class="ad-container">
+   <div class="ad-images">
+  <div class="ad active"><img src="{% static 'img.png' %}" alt="Ad 1" class="adsimages"></div>
+  <div class="ad"><img src="{% static 'img1.jpg' %}" alt="Ad 2" class="adsimages"></div>
+  <div class="ad"><img src="{% static 'img3.png' %}" alt="Ad 3" class="adsimages"></div>
+  <div class="ad"><img src="{% static 'img2.jpg' %}" alt="Ad 4" class="adsimages"></div>
+</div>
+
+    <button class="next-btn" id="nextBtn">Next</button>
+  </div>
+   <!-- About Us Section -->
+   <section id="about" class="container">
+    <h2 class="section-title">About Spayde Hospital</h2>
+    <p>Spayde Hospital is a leading healthcare provider with a strong reputation for compassionate care and advanced medical technology. We have been serving the community since 2005, providing comprehensive healthcare services with the goal of improving patient outcomes through innovative treatments and personalized care.</p>
+    <p>Our hospital is home to a team of skilled doctors, surgeons, nurses, and healthcare professionals who work together to ensure that every patient receives the best care possible. With a wide range of services and specialties, Spayde Hospital is equipped to treat a variety of medical conditions while keeping the patient experience at the heart of our approach.</p>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="container">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+        <div class="service-item">
+            <h3>Emergency Care</h3>
+            <p>Our emergency department operates 24/7, offering immediate care for life-threatening conditions and accidents. We are equipped with advanced diagnostic tools and have a team of highly trained emergency doctors and nurses ready to provide fast, effective care.</p>
+        </div>
+        <div class="service-item">
+            <h3>Cardiology</h3>
+            <p>We provide comprehensive heart care, including diagnostics, surgery, and long-term cardiac rehabilitation. Our cardiology department uses the latest equipment to monitor heart health and provide treatments like angioplasty and bypass surgery.</p>
+        </div>
+        <div class="service-item">
+            <h3>Orthopedics</h3>
+            <p>Our orthopedic specialists are skilled in treating bone and joint conditions, from fractures to joint replacements. We also provide physiotherapy and rehabilitation to ensure a full recovery after surgeries.</p>
+        </div>
+        <div class="service-item">
+            <h3>Pediatrics</h3>
+            <p>We offer care for children from birth to adolescence, focusing on early diagnosis, preventive healthcare, and vaccinations. Our pediatric specialists are dedicated to treating common childhood illnesses and providing advice on growth and development.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Used Section -->
+<section id="technologies" class="container">
+    <h2 class="section-title">Technologies We Use</h2>
+    <div class="technologies">
+        <div class="technology-item">
+            <h3>Robotic Surgery</h3>
+            <p>We use advanced robotic systems for precise and minimally invasive surgeries. Robotic surgery allows for faster recovery times, less pain, and smaller incisions, providing patients with better outcomes.</p>
+        </div>
+        <div class="technology-item">
+            <h3>AI Diagnostic Tools</h3>
+            <p>Our hospital utilizes AI-driven diagnostic tools to provide quick and accurate results, aiding in early detection of diseases such as cancer, heart disease, and neurological disorders.</p>
+        </div>
+        <div class="technology-item">
+            <h3>3D Imaging</h3>
+            <p>We use cutting-edge 3D imaging technology for detailed scans. This helps us plan complex surgeries and offers patients the benefit of accurate and precise diagnosis for conditions like cancer and vascular diseases.</p>
+        </div>
+        <div class="technology-item">
+            <h3>Telemedicine</h3>
+            <p>Our telemedicine services allow patients to consult with specialists remotely. Whether you're at home or abroad, our doctors are just a click away, offering consultations for non-emergency health concerns and follow-up appointments.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Our Expertise Section -->
+<section id="expertise" class="container">
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="expertise">
+        <div class="expertise-item">
+            <h3>Highly Experienced Doctors</h3>
+            <p>Our medical team consists of doctors with decades of experience in their respective fields, providing top-quality care and expertise. We continually invest in education and training to ensure our doctors stay ahead of the latest medical developments.</p>
+        </div>
+        <div class="expertise-item">
+            <h3>Comprehensive Care</h3>
+            <p>We offer a full range of medical services, from preventive care to complex surgeries. Our integrated approach ensures that every patient receives personalized care from diagnosis to treatment, recovery, and beyond.</p>
+        </div>
+        <div class="expertise-item">
+            <h3>Patient-Centered Approach</h3>
+            <p>We prioritize patient comfort and care, ensuring personalized attention at every stage of your treatment journey. Our doctors take the time to understand your needs, provide clear communication, and involve you in every decision regarding your health.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Patient Testimonials Section -->
+<section id="testimonials" class="container">
+    <h2 class="section-title">What Our Patients Say</h2>
+    <div class="testimonials">
+        <div class="testimonial-item">
+            <p>"Spayde Hospital gave me the care I needed during my treatment. The doctors and staff were so compassionate, and the facilities are top-notch. I highly recommend them for anyone seeking expert care."</p>
+            <cite>- Dinesh T.</cite>
+        </div>
+        <div class="testimonial-item">
+            <p>"The robotic surgery I underwent at Spayde was a game-changer. I recovered so quickly, and the staff was there for me every step of the way. Thank you for your excellent care!"</p>
+            <cite>- Priya J.</cite>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-info">
+        <div class="contact-item">
+            <h3>Visit Us</h3>
+            <p> Road number - 5, Near Nexus MALL, Spayde City Hospital </p>
+        </div>
+        <div class="contact-item">
+            <h3>Call Us</h3>
+            <p>+123 456 7890</p>
+        </div>
+        <div class="contact-item">
+            <h3>Email Us</h3>
+            <p>contact@spaydehospital.com</p>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta">
+    <h2>Ready to Book an Appointment?</h2>
+    <p>Our medical experts are here to assist you. Click below to schedule your visit.</p>
+    <button onclick="window.location.href='{% url 'bookapp' %}'">Book Appointment</button>
+</section>
+
+
+  <script src="{% static 'home.js' %}" defer></script>
+
+
+  
+</body>
+</html>
+{% endblock %}

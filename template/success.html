@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Success</title>
+    <style>
+        /* Basic reset */
+        body, h2, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Background styling */
+        body {
+            background-color: #f2f4f7;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        /* Container */
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+        /* Animation */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Button hover animation */
+        @keyframes hoverEffect {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        a:hover {
+            animation: hoverEffect 0.3s forwards;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <h2>Appointment Booked Successfully!</h2>
+        <p>Thank you for booking an appointment. We will get back to you soon.</p>
+        <a href="{% url 'bookapp' %}" onclick="showMessage()">Book Another Appointment</a>
+    </div>
+
+    <script>
+        // Function to show a message when the user clicks the button
+        function showMessage() {
+            alert("You are being redirected to book another appointment.");
+        }
+    </script>
+</body>
+</html>
