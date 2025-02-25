@@ -1,0 +1,86 @@
+.efg{
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+/* .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px; /* Rounded corners
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    /* transition: transform 0.3s; /* Smooth hover effect */
+/* }  */
+
+/* .container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+/* }  */
+
+h1 {
+    text-align: center;
+    color: #343a40; /* Dark gray for the title */
+    /* margin-bottom: 20px; Space below the title */
+    
+}
+
+.form-group {
+    margin-bottom: 20px; /* Increased space between fields */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Bold labels for better readability */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    width: calc(100% - 20px);
+    padding: 12px; /* Increased padding for comfort */
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    transition: border-color 0.3s; /* Smooth border color change */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #28a745; /* Green border on focus */
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners for button */
+    font-size: 16px; /* Larger font size for button text */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+button:hover {
+    background-color: #16ced1; /* Darker green on hover */
+}
+
+#availability {
+    padding: 10px;
+    background-color: #f8f9fa; /* Light background for availability info */
+    border-left: 4px solid #28a745; /* Green left border */
+    margin-top: 10px;
+}
